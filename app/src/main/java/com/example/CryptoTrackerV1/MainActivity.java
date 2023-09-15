@@ -29,8 +29,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    // creating variable for recycler view,
-    // adapter, array list, progress bar
+    // creating variable for recycler view, adapter, array list, and progress bar
     private RecyclerView currencyRV;
     private EditText searchEdt;
     private ArrayList<CurrencyModel> currencyModelArrayList;
@@ -60,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
         // calling get data method to get data from API.
         getData();
 
-        // on below line we are adding text watcher for our
-        // edit text to check the data entered in edittext.
+        // adding text watcher for edit text to check data entered in edittext
         searchEdt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -75,33 +73,28 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                // on below line calling a
-                // method to filter our array list
+                // calling method to filter array list
                 filter(s.toString());
             }
         });
     }
 
     private void filter(String filter) {
-        // on below line we are creating a new array list
-        // for storing our filtered data.
+        // creating new array list for storing filtered data
         ArrayList<CurrencyModel> filteredlist = new ArrayList<>();
         // running a for loop to search the data from our array list.
         for (CurrencyModel item : currencyModelArrayList) {
-            // on below line we are getting the item which are
-            // filtered and adding it to filtered list.
+            // getting the item which are filtered and adding it to filtered list
             if (item.getName().toLowerCase().contains(filter.toLowerCase())) {
                 filteredlist.add(item);
             }
         }
-        // on below line we are checking
-        // weather the list is empty or not.
+        // checking whether the list is empty or not
         if (filteredlist.isEmpty()) {
             // if list is empty we are displaying a toast message.
             Toast.makeText(this, "No currency found..", Toast.LENGTH_SHORT).show();
         } else {
-            // on below line we are calling a filter
-            // list method to filter our list.
+            // calling a filter list method to filter our list
             currencyRVAdapter.filterList(filteredlist);
         }
     }
@@ -158,8 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 return headers;
             }
         };
-        // calling a method to add our
-        // json object request to our queue.
+        // calling a method to add json object request to queue
         queue.add(jsonObjectRequest);
     }
 }

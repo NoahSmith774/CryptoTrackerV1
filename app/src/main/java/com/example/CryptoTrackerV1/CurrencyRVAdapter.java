@@ -26,8 +26,7 @@ public class CurrencyRVAdapter extends RecyclerView.Adapter<CurrencyRVAdapter.Cu
 
     // method to filter list.
     public void filterList(ArrayList<CurrencyModel> filterlist) {
-        // adding filtered list to our
-        // array list and notifying data set changed
+        // adding filtered list to array list and notifying data set changed
         currencyModels = filterlist;
         notifyDataSetChanged();
     }
@@ -36,15 +35,14 @@ public class CurrencyRVAdapter extends RecyclerView.Adapter<CurrencyRVAdapter.Cu
     @Override
     public CurrencyRVAdapter.CurrencyViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // method to inflate the layout file created for recycler view
-        // on below line we are inflating our layout file.
+        // inflating layout file.
         View view = LayoutInflater.from(context).inflate(R.layout.currency_rv_item, parent, false);
         return new CurrencyRVAdapter.CurrencyViewholder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CurrencyRVAdapter.CurrencyViewholder holder, int position) {
-        // on below line we are setting data to our item of
-        // recycler view and all its views.
+        // setting data to item of recycler view and all its views
         CurrencyModel modal = currencyModels.get(position);
         holder.nameTV.setText(modal.getName());
         holder.rateTV.setText("$ " + df2.format(modal.getPrice()));
@@ -53,13 +51,11 @@ public class CurrencyRVAdapter extends RecyclerView.Adapter<CurrencyRVAdapter.Cu
 
     @Override
     public int getItemCount() {
-        // on below line we are returning
-        // the size of our array list.
+        // returning size of array list
         return currencyModels.size();
     }
 
-    // on below line we are creating our view holder class
-    // which will be used to initialize each view of our layout file.
+    // creating view holder class, will be used to initialize each view of layout file
     public class CurrencyViewholder extends RecyclerView.ViewHolder {
         private TextView symbolTV, rateTV, nameTV;
 

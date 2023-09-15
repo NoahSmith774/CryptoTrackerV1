@@ -1,18 +1,20 @@
 package com.example.CryptoTrackerV1;
 
 public class CurrencyModel {
-    // variable for currency name,
-    // currency symbol and price.
+    // variable for currency name, symbol and price
+
+    //instance variables
     private String name;
     private String symbol;
     private double price;
 
+    //constructor
     public CurrencyModel(String name, String symbol, double price) {
         this.name = name;
         this.symbol = symbol;
         this.price = price;
     }
-
+    //get and set methods
     public String getName() {
         return name;
     }
